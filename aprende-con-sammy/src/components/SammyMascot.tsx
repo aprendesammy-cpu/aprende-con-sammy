@@ -32,14 +32,17 @@ const LABELS: Record<SammyVariant, string> = {
   waving: 'Sammy saludando',
 }
 
-/** Paleta de la mascota, alineada con los tokens del producto. */
-const FUR_DARK = '#1F2937'
+/** Paleta de la mascota, alineada con el brand guide oficial. */
+const FUR_DARK = '#1E2A44' /* Profesionalismo (azul oscuro) */
 const FUR_LIGHT = '#FFFFFF'
-const FUR_EDGE = '#E2E8F0'
-const BLUSH = '#FB923C'
-const BAMBOO_LEAF = '#10B981'
-const BAMBOO_LEAF_LIGHT = '#34D399'
-const BAMBOO_STEM = '#059669'
+const FUR_EDGE = '#DDE4F0'
+const BLUSH = '#FF7D7D' /* Cercanía (coral) */
+const BAMBOO_LEAF = '#00B4A6' /* Confianza (teal) */
+const BAMBOO_LEAF_LIGHT = '#A8E6CF' /* Calma (verde menta) */
+const BAMBOO_STEM = '#009688'
+const ACCENT_YELLOW = '#FFCB3D' /* Alegría */
+const ACCENT_PURPLE = '#7B61FF' /* Creatividad */
+const ACCENT_SKY = '#6EC1F4' /* Claridad */
 
 /**
  * Hoja de bambú reutilizable.
@@ -114,15 +117,31 @@ export function SammyMascot({
     >
       {!decorative ? <title id={titleId}>{title}</title> : null}
 
-      {/* Confeti solo en la pose de celebración */}
+      {/* Confeti solo en la pose de celebración (estrellas, corazones y colores de marca) */}
       {variant === 'celebrating' ? (
         <g aria-hidden="true">
-          <circle cx="34" cy="52" r="4.5" fill="#FBBF24" />
-          <circle cx="168" cy="46" r="5" fill="#2DD4BF" />
-          <rect x="24" y="96" width="8" height="8" rx="2" fill="#8B5CF6" transform="rotate(18 28 100)" />
-          <rect x="166" y="100" width="8" height="8" rx="2" fill="#F97316" transform="rotate(-14 170 104)" />
-          <circle cx="52" cy="26" r="3.5" fill="#10B981" />
-          <circle cx="150" cy="20" r="3.5" fill="#F43F5E" />
+          <circle cx="34" cy="52" r="4.5" fill={ACCENT_YELLOW} />
+          <circle cx="168" cy="46" r="5" fill="#00B4A6" />
+          <rect x="24" y="96" width="8" height="8" rx="2" fill={ACCENT_PURPLE} transform="rotate(18 28 100)" />
+          <rect x="166" y="100" width="8" height="8" rx="2" fill="#FF7D7D" transform="rotate(-14 170 104)" />
+          <circle cx="52" cy="26" r="3.5" fill="#A8E6CF" />
+          <circle cx="150" cy="20" r="3.5" fill={ACCENT_SKY} />
+          {/* Estrella */}
+          <path
+            d="M46 14 l1.7 3.6 4 .5 -2.9 2.8 .7 4 -3.5 -1.9 -3.5 1.9 .7 -4 -2.9 -2.8 4 -.5 Z"
+            fill={ACCENT_YELLOW}
+          />
+          {/* Corazón */}
+          <path
+            d="M172 74 c-2.6-2.8-6.4-.6-6.4 2.4 0 2.6 3.6 5 6.4 7.2 2.8-2.2 6.4-4.6 6.4-7.2 0-3-3.8-5.2-6.4-2.4 Z"
+            fill="#FF7D7D"
+          />
+          {/* Bombilla */}
+          <g transform="translate(18 70)">
+            <circle cx="0" cy="0" r="5" fill={ACCENT_YELLOW} opacity="0.9" />
+            <rect x="-2.4" y="4" width="4.8" height="3.6" rx="1.2" fill="#1E2A44" opacity="0.7" />
+            <path d="M0 -8 v-3 M-6 -5 l-2.4 -1.8 M6 -5 l2.4 -1.8" stroke={ACCENT_YELLOW} strokeWidth="1.6" strokeLinecap="round" />
+          </g>
         </g>
       ) : null}
 
@@ -252,7 +271,7 @@ export function SammyMark({ size = 36, className = '' }: { size?: number; classN
   return (
     <span
       className={[
-        'grid shrink-0 place-items-center rounded-xl bg-gradient-to-br from-primary-400 to-creative-500 shadow-soft',
+        'grid shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#00B4A6] to-[#7B61FF] shadow-soft',
         className,
       ].join(' ')}
       style={{ width: size, height: size }}
@@ -270,8 +289,53 @@ export function SammyMark({ size = 36, className = '' }: { size?: number; classN
         <circle cx="120.5" cy="98" r="3.3" fill={FUR_DARK} />
         <ellipse cx="100" cy="118" rx="7" ry="5" fill={FUR_DARK} />
         <path d="M90 126 C 95 133, 105 133, 110 126" stroke={FUR_DARK} strokeWidth="3.4" strokeLinecap="round" fill="none" />
+        {/* Rubor de cercanía (coral) */}
+        <ellipse cx="66" cy="122" rx="7" ry="4.2" fill={BLUSH} opacity="0.45" />
+        <ellipse cx="134" cy="122" rx="7" ry="4.2" fill={BLUSH} opacity="0.45" />
         <BambooSprig x={100} y={48} rotate={0} scale={1.25} />
       </svg>
+    </span>
+  )
+}
+
+/**
+ * Logotipo tipográfico oficial "Aprende con Sammy" según el brand guide:
+ *  - "Aprende" en Profesionalismo (#1E2A44)
+ *  - "con" en Alegría (#FFCB3D)
+ *  - "Sammy" en degradado Confianza → Creatividad (#00B4A6 → #7B61FF)
+ * Tipografía Baloo 2 e ícono del panda Sammy.
+ */
+export interface SammyLogoProps {
+  /** Tamaño base en píxeles del ícono; el texto escala proporcionalmente. */
+  size?: number
+  /** Oculta el texto (solo el ícono). */
+  iconOnly?: boolean
+  className?: string
+}
+
+/**
+ * Logotipo de la marca con su wordmark tricolor.
+ *
+ * @param props Tamaño, modo ícono y clase.
+ */
+export function SammyLogo({ size = 40, iconOnly = false, className = '' }: SammyLogoProps) {
+  const textScale = Math.max(0.75, size / 40)
+
+  if (iconOnly) {
+    return <SammyMark size={size} className={className} />
+  }
+
+  return (
+    <span className={`inline-flex items-center gap-2.5 ${className}`}>
+      <SammyMark size={size} />
+      <span
+        className="font-head leading-none font-extrabold tracking-tight whitespace-nowrap"
+        style={{ fontSize: `${textScale * 1.0625}rem` }}
+      >
+        <span className="text-navy-700">Aprende </span>
+        <span className="text-sun-400">con </span>
+        <span className="text-gradient-sammy">Sammy</span>
+      </span>
     </span>
   )
 }

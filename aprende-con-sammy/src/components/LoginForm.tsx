@@ -202,7 +202,7 @@ export function LoginForm({ onSuccess, footer, className = '' }: LoginFormProps)
           type="email"
           inputMode="email"
           autoComplete="email"
-          placeholder="ana@ejemplo.com"
+          placeholder="estudiante@aprendesammy.com"
           required
           icon={<IconMail size={18} />}
           value={values.email}
@@ -262,7 +262,7 @@ export function LoginForm({ onSuccess, footer, className = '' }: LoginFormProps)
                 type="email"
                 inputMode="email"
                 autoComplete="email"
-                placeholder="ana@ejemplo.com"
+                placeholder="estudiante@aprendesammy.com"
                 icon={<IconMail size={18} />}
                 value={recoveryEmail}
                 error={recoveryError}

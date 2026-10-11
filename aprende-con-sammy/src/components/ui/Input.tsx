@@ -92,14 +92,15 @@ export function Input({
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
           className={[
-            'min-h-11 w-full rounded-xl border-2 bg-white px-3.5 py-2.5 text-[15px] text-ink',
+            /* Inputs del brand guide: borde menta 2 px, focus teal, radio 10 px */
+            'min-h-11 w-full rounded-[10px] border-2 bg-white px-3.5 py-2.5 text-[15px] text-ink',
             'transition-colors duration-150 placeholder:text-slate-400',
             'focus:outline-none focus:ring-4',
             icon ? 'pl-11' : '',
             canToggle ? 'pr-11' : '',
             error
               ? 'border-danger-400 focus:border-danger-500 focus:ring-danger-100'
-              : 'border-slate-200 hover:border-slate-300 focus:border-primary-400 focus:ring-primary-100',
+              : 'border-primary-100 hover:border-primary-200 focus:border-primary-500 focus:ring-primary-100',
             disabled ? 'cursor-not-allowed bg-slate-50 text-muted' : '',
             // Evita el zoom automático de iOS al enfocar (requiere >=16px)
             'text-base',

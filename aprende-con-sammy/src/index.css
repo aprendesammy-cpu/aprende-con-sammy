@@ -2,87 +2,111 @@
 
 /* ============================================================
    APRENDE CON SAMMY — Design tokens (Tailwind CSS v4)
-   Paleta oficial de la especificación de producto.
-   Ver ADR-005 en DOCS/decisiones-arquitectura.md
+   Paleta OFICIAL del brand guide "Aprende con Sammy".
+
+   Colores principales:
+     #00B4A6 Confianza (teal) · #FFCB3D Alegría (amarillo)
+     #7B61FF Creatividad (morado) · #A8E6CF Calma (verde menta)
+   Colores secundarios:
+     #1E2A44 Profesionalismo · #FF7D7D Cercanía (coral)
+     #6EC1F4 Claridad (azul cielo) · #FFF5E1 Calidez (crema)
+
+   Tipografías (Google Fonts): Baloo 2 (títulos), Nunito (cuerpo),
+   Caveat (frases decorativas).
    ============================================================ */
 @theme {
-  /* Primario — Teal: botones, acentos, estados activos */
-  --color-primary-50: #f0fdfa;
-  --color-primary-100: #ccfbf1;
-  --color-primary-200: #99f6e4;
-  --color-primary-300: #5eead4;
-  --color-primary-400: #2dd4bf;
-  --color-primary-500: #14b8a6;
-  --color-primary-600: #0d9488;
-  --color-primary-700: #0f766e;
-  --color-primary-800: #115e59;
-  --color-primary-900: #134e4a;
+  /* Primario — Teal #00B4A6 "Confianza": botones, acentos, estados activos */
+  --color-primary-50: #e0f7f5;
+  --color-primary-100: #a8e6cf; /* Calma (verde menta) */
+  --color-primary-200: #7fd9cd;
+  --color-primary-300: #4cc9bc;
+  --color-primary-400: #1cbfb1;
+  --color-primary-500: #00b4a6; /* ← color oficial */
+  --color-primary-600: #00a396;
+  --color-primary-700: #009688; /* hover oficial del botón primario */
+  --color-primary-800: #04685f;
+  --color-primary-900: #0b4f49;
 
-  /* Azul profundo — títulos y encabezados */
-  --color-navy-50: #eef2ff;
-  --color-navy-100: #e0e7ff;
-  --color-navy-200: #c7d2fe;
-  --color-navy-300: #a5b4fc;
-  --color-navy-400: #6d83e8;
-  --color-navy-500: #3b5bdb;
-  --color-navy-600: #2a44b8;
-  --color-navy-700: #1e3a8a;
-  --color-navy-800: #172e6e;
-  --color-navy-900: #101f4d;
+  /* Azul oscuro #1E2A44 "Profesionalismo": títulos y encabezados */
+  --color-navy-50: #f1f4fa;
+  --color-navy-100: #dde4f0;
+  --color-navy-200: #c2cede;
+  --color-navy-300: #93a5c2;
+  --color-navy-400: #5f759b;
+  --color-navy-500: #3b5277;
+  --color-navy-600: #2a3d5c;
+  --color-navy-700: #1e2a44; /* ← color oficial */
+  --color-navy-800: #16213a;
+  --color-navy-900: #0f1729;
 
-  /* Amarillo — destacados y advertencias */
-  --color-sun-50: #fffbeb;
-  --color-sun-100: #fef3c7;
-  --color-sun-300: #fcd34d;
-  --color-sun-400: #fbbf24;
-  --color-sun-500: #f59e0b;
-  --color-sun-600: #d97706;
+  /* Amarillo #FFCB3D "Alegría": destacados, botón secundario */
+  --color-sun-50: #fff8e2;
+  --color-sun-100: #ffefbd;
+  --color-sun-300: #ffd968;
+  --color-sun-400: #ffcb3d; /* ← color oficial */
+  --color-sun-500: #ffb300; /* hover oficial del botón secundario */
+  --color-sun-600: #e09b00;
 
-  /* Coral — acentos terciarios */
-  --color-coral-50: #fff7ed;
-  --color-coral-100: #ffedd5;
-  --color-coral-400: #fb923c;
-  --color-coral-500: #f97316;
-  --color-coral-600: #ea580c;
+  /* Coral #FF7D7D "Cercanía": acentos cálidos */
+  --color-coral-50: #fff1f1;
+  --color-coral-100: #ffe0e0;
+  --color-coral-400: #ff9d9d;
+  --color-coral-500: #ff7d7d; /* ← color oficial */
+  --color-coral-600: #f25c5c;
 
-  /* Púrpura — elementos creativos */
-  --color-creative-50: #f5f3ff;
-  --color-creative-100: #ede9fe;
-  --color-creative-400: #a78bfa;
-  --color-creative-500: #8b5cf6;
-  --color-creative-600: #7c3aed;
+  /* Morado #7B61FF "Creatividad": enlaces, acentos creativos */
+  --color-creative-50: #f1eeff;
+  --color-creative-100: #e3dcff;
+  --color-creative-400: #9985ff;
+  --color-creative-500: #7b61ff; /* ← color oficial */
+  --color-creative-600: #6549e8;
 
-  /* Verde suave — éxito y progreso */
+  /* Verde menta #A8E6CF "Calma": bordes de campos y tarjetas */
+  --color-mint: #a8e6cf;
+
+  /* Azul cielo #6EC1F4 "Claridad" */
+  --color-sky-50: #eaf6ff;
+  --color-sky-100: #d5ecff;
+  --color-sky-400: #8ed0f8;
+  --color-sky-500: #6ec1f4; /* ← color oficial */
+  --color-sky-600: #4aa9e8;
+
+  /* Éxito — verde bambú */
   --color-success-50: #ecfdf5;
   --color-success-100: #d1fae5;
   --color-success-400: #34d399;
   --color-success-500: #10b981;
   --color-success-600: #059669;
 
-  /* Rojo — errores y estados destructivos */
-  --color-danger-50: #fef2f2;
-  --color-danger-100: #fee2e2;
-  --color-danger-400: #f87171;
-  --color-danger-500: #ef4444;
-  --color-danger-600: #dc2626;
+  /* Error — se apoya en el coral de cercanía */
+  --color-danger-50: #fff1f1;
+  --color-danger-100: #ffe0e0;
+  --color-danger-400: #ff9d9d;
+  --color-danger-500: #ff7d7d;
+  --color-danger-600: #e05a5a;
 
   /* Superficies y texto */
-  --color-cream: #f9fafb;
-  --color-ink: #1f2937;
-  --color-muted: #6b7280;
+  --color-cream: #fff5e1; /* Calidez (crema) */
+  --color-warmwhite: #fffbf2;
+  --color-ink: #1e2a44;
+  --color-muted: #5f6b83;
 
-  /* Tipografía */
+  /* Tipografías oficiales (Google Fonts, importadas en index.html) */
   --font-sans:
     'Nunito', ui-rounded, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     system-ui, 'Helvetica Neue', Arial, sans-serif;
+  --font-head:
+    'Baloo 2', 'Nunito', ui-rounded, system-ui, sans-serif;
+  --font-script:
+    'Caveat', 'Comic Sans MS', cursive;
 
-  /* Radios: 12–16 px según la guía de estilo */
+  /* Radios: 12 px botones / 16 px tarjetas, según el brand guide */
   --radius-card: 1rem;
   --radius-xl2: 1.25rem;
 
-  /* Sombras suaves en tarjetas */
-  --shadow-soft: 0 6px 20px -8px rgb(31 41 55 / 0.12);
-  --shadow-card: 0 10px 30px -12px rgb(30 58 138 / 0.18);
+  /* Sombras suaves con el teal de marca al ~10 % de opacidad */
+  --shadow-soft: 0 6px 20px -8px rgb(0 180 166 / 0.18);
+  --shadow-card: 0 10px 30px -12px rgb(0 180 166 / 0.22);
 
   /* Altura de la navegación inferior (sin safe-area, que se suma aparte) */
   --tabbar-height: 4.25rem;
@@ -131,7 +155,10 @@
   }
 
   body {
-    @apply bg-cream text-ink antialiased;
+    @apply text-ink antialiased;
+    /* Fondo de marca: degradado Calidez (#FFF5E1) → Calma (#A8E6CF) */
+    background-image: linear-gradient(160deg, #fff5e1 0%, #fffbf2 45%, #e0f7f5 100%);
+    background-attachment: fixed;
     font-family: var(--font-sans);
     min-height: 100dvh;
     /* Evita scroll horizontal por desbordes de animación */
@@ -146,6 +173,7 @@
   h2,
   h3 {
     @apply text-navy-700;
+    font-family: var(--font-head); /* Baloo 2 — títulos de la marca */
     text-wrap: balance;
   }
 
@@ -170,4 +198,21 @@
 @utility min-tap {
   min-height: 44px;
   min-width: 44px;
+}
+
+/* Frases decorativas manuscritas de la marca (Caveat). */
+@utility font-script {
+  font-family: var(--font-script);
+}
+
+/* Fondo degradado de marca: Calidez (#FFF5E1) → Calma (#A8E6CF). */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(160deg, #fff5e1 0%, #fffbf2 45%, #e0f7f5 100%);
+}
+
+/* Degradado del logotipo: Confianza (#00B4A6) → Creatividad (#7B61FF). */
+@utility text-gradient-sammy {
+  background-image: linear-gradient(92deg, #00b4a6 0%, #7b61ff 100%);
+  background-clip: text;
+  color: transparent;
 }
