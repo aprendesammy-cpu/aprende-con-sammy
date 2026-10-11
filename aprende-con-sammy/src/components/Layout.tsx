@@ -1,6 +1,7 @@
 import { Suspense, useState, type ReactNode } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 
+import { AppFooter } from '@/components/AppFooter'
 import {
   IconBook,
   IconCamera,
@@ -152,16 +153,21 @@ export function Layout({ children, title }: LayoutProps) {
   }
 
   return (
-    <div className="min-h-dvh bg-cream md:flex">
+    <div className="bg-brand-gradient min-h-dvh md:flex">
       {/* ── Barra lateral (escritorio) ─────────────────────────── */}
-      <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-slate-200 bg-white px-4 py-5 md:flex">
+      <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r-2 border-primary-100 bg-white px-4 py-5 md:flex">
         <div className="flex items-center gap-3 px-2">
           <SammyMark size={40} />
           <div className="min-w-0">
-            <p className="truncate text-base leading-tight font-extrabold text-navy-700">
-              Aprende con Sammy
+            {/* Wordmark oficial: Aprende (#1E2A44) · con (#FFCB3D) · Sammy (degradado) */}
+            <p className="font-head truncate text-base leading-tight font-extrabold">
+              <span className="text-navy-700">Aprende </span>
+              <span className="text-sun-400">con </span>
+              <span className="text-gradient-sammy">Sammy</span>
             </p>
-            <p className="truncate text-xs text-muted">Aprender juntos</p>
+            <p className="font-script truncate text-sm leading-none text-creative-500">
+              ¡Tú puedes!
+            </p>
           </div>
         </div>
 
@@ -207,18 +213,21 @@ export function Layout({ children, title }: LayoutProps) {
 
       {/* ── Columna principal ──────────────────────────────────── */}
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur-md">
+        <header className="sticky top-0 z-30 border-b-2 border-primary-100 bg-white/90 backdrop-blur-md">
           <div
             className="flex items-center gap-3 px-4 py-3 md:px-8"
             style={{ paddingTop: 'max(0.75rem, env(safe-area-inset-top))' }}
           >
             <div className="flex min-w-0 flex-1 items-center gap-2.5">
+              {/* Logo oficial: en móvil solo el ícono + título; en escritorio wordmark completo */}
               <span className="md:hidden">
                 <SammyMark size={34} />
               </span>
               <div className="min-w-0">
-                <h1 className="truncate text-base leading-tight font-extrabold text-navy-700 md:hidden">
-                  {title ?? 'Aprende con Sammy'}
+                <h1 className="font-head truncate text-base leading-tight font-extrabold md:hidden">
+                  <span className="text-navy-700">Aprende </span>
+                  <span className="text-sun-400">con </span>
+                  <span className="text-gradient-sammy">Sammy</span>
                 </h1>
                 <p className="hidden truncate text-sm text-muted md:block">
                   {title ?? 'Panel de la familia'}
@@ -281,6 +290,9 @@ export function Layout({ children, title }: LayoutProps) {
             >
               {children ?? <Outlet />}
             </Suspense>
+
+            {/* Pie de página de marca: slogan en Caveat + correo oficial */}
+            <AppFooter compact className="mt-10" />
           </div>
         </main>
 
@@ -288,7 +300,7 @@ export function Layout({ children, title }: LayoutProps) {
         {isAuthenticated ? (
           <nav
             aria-label="Navegación inferior"
-            className="fixed inset-x-0 bottom-0 z-30 border-t border-slate-200 bg-white/95 backdrop-blur-md md:hidden"
+            className="fixed inset-x-0 bottom-0 z-30 border-t-2 border-primary-100 bg-white/95 backdrop-blur-md md:hidden"
             style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
           >
             <ul

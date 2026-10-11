@@ -9,9 +9,9 @@ import type { ElementType, ReactNode } from 'react'
 export type CardTone = 'default' | 'primary' | 'navy' | 'sun' | 'success' | 'danger'
 
 const TONES = {
-  default: 'border-slate-100 bg-white',
+  default: 'border-primary-100 bg-white',
   primary: 'border-primary-100 bg-primary-50/60',
-  navy: 'border-navy-100 bg-navy-50',
+  navy: 'border-primary-100 bg-cream',
   sun: 'border-sun-100 bg-sun-50',
   success: 'border-success-100 bg-success-50',
   danger: 'border-danger-100 bg-danger-50',
@@ -57,7 +57,8 @@ export function Card({
   return (
     <Tag
       className={[
-        'rounded-card border shadow-card',
+        /* Cards del brand guide: radio 16 px, borde menta 2 px y sombra teal suave */
+        'rounded-card border-2 shadow-card',
         TONES[tone],
         flush ? '' : 'p-5',
         className,

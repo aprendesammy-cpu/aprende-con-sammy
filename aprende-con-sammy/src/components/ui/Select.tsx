@@ -87,14 +87,14 @@ export function Select({
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
           className={[
-            'min-h-11 w-full appearance-none rounded-xl border-2 bg-white px-3.5 py-2.5',
+            'min-h-11 w-full appearance-none rounded-[10px] border-2 bg-white px-3.5 py-2.5',
             'text-base text-ink transition-colors duration-150',
             'focus:outline-none focus:ring-4',
             icon ? 'pl-11' : '',
             'pr-11',
             error
               ? 'border-danger-400 focus:border-danger-500 focus:ring-danger-100'
-              : 'border-slate-200 hover:border-slate-300 focus:border-primary-400 focus:ring-primary-100',
+              : 'border-primary-100 hover:border-primary-200 focus:border-primary-500 focus:ring-primary-100',
             disabled ? 'cursor-not-allowed bg-slate-50 text-muted' : '',
             className,
           ]

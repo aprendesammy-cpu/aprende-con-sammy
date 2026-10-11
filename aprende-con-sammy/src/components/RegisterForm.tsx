@@ -232,7 +232,7 @@ export function RegisterForm({ onSuccess, footer, className = '' }: RegisterForm
           type="email"
           inputMode="email"
           autoComplete="email"
-          placeholder="ana@ejemplo.com"
+          placeholder="estudiante@aprendesammy.com"
           required
           icon={<IconMail size={18} />}
           value={values.email}

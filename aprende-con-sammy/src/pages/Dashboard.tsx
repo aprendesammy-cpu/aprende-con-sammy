@@ -25,35 +25,35 @@ const ROLE_TONES: Record<UserRole, 'primary' | 'creative' | 'navy'> = {
   admin: 'navy',
 }
 
-/** Accesos rápidos a las otras secciones. */
+/** Accesos rápidos a las otras secciones (iconos redondeados en colores de marca). */
 const SHORTCUTS = [
   {
     to: '/camara',
     label: 'Cámara en vivo',
     description: 'Observa la sesión del aula',
     icon: IconCamera,
-    tone: 'bg-primary-50 text-primary-600',
+    tone: 'bg-primary-50 text-primary-600', /* Confianza */
   },
   {
     to: '/progreso',
     label: 'Progreso',
     description: 'Competencias y logros',
     icon: IconChart,
-    tone: 'bg-success-50 text-success-600',
+    tone: 'bg-sun-50 text-sun-600', /* Alegría */
   },
   {
     to: '/recursos',
     label: 'Recursos',
     description: 'Actividades para casa',
     icon: IconBook,
-    tone: 'bg-creative-50 text-creative-600',
+    tone: 'bg-creative-50 text-creative-500', /* Creatividad */
   },
   {
     to: '/familia',
     label: 'Mi familia',
     description: 'Plan, pagos y documentos',
     icon: IconFamily,
-    tone: 'bg-sun-50 text-sun-600',
+    tone: 'bg-sky-50 text-sky-600', /* Claridad */
   },
 ] as const
 
@@ -78,8 +78,8 @@ function Dashboard() {
       <Card tone="navy" className="overflow-hidden">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="min-w-0">
-            <p className="text-sm font-semibold text-navy-500">{getGreeting()},</p>
-            <h1 className="mt-0.5 truncate text-2xl font-extrabold text-navy-700 sm:text-3xl">
+            <p className="text-sm font-semibold text-muted">{getGreeting()},</p>
+            <h1 className="font-head mt-0.5 truncate text-2xl font-extrabold text-navy-700 sm:text-3xl">
               {displayName}
             </h1>
 
@@ -92,12 +92,17 @@ function Dashboard() {
               ) : null}
               <Badge tone="neutral">{user?.email}</Badge>
             </div>
+
+            {/* Frase decorativa de la marca (Caveat) */}
+            <p className="font-script mt-3 text-xl leading-none text-creative-500">
+              Aprende a tu manera. Avanza con Sammy.
+            </p>
           </div>
 
           {isAdmin ? (
             <Link
               to="/admin/usuarios"
-              className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-navy-700 px-4 text-sm font-bold text-white transition hover:bg-navy-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
+              className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-primary-500 px-4 text-sm font-bold text-white shadow-soft transition hover:bg-primary-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
             >
               <IconFamily size={18} />
               Gestión de Usuarios
@@ -133,7 +138,7 @@ function Dashboard() {
 
       {/* ── Accesos rápidos ────────────────────────────────────── */}
       <section>
-        <h2 className="mb-3 text-sm font-extrabold tracking-wide text-muted uppercase">
+        <h2 className="font-head mb-3 text-sm font-extrabold tracking-wide text-navy-700 uppercase">
           Secciones
         </h2>
         <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4">
@@ -143,7 +148,7 @@ function Dashboard() {
               <li key={item.to}>
                 <Link
                   to={item.to}
-                  className="flex h-full min-h-28 flex-col gap-2 rounded-card border border-slate-100 bg-white p-4 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 motion-reduce:hover:translate-y-0"
+                  className="flex h-full min-h-28 flex-col gap-2 rounded-card border-2 border-primary-100 bg-white p-4 shadow-soft transition hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 motion-reduce:hover:translate-y-0"
                 >
                   <span
                     className={`grid h-10 w-10 place-items-center rounded-xl ${item.tone}`}
@@ -151,13 +156,18 @@ function Dashboard() {
                   >
                     <ItemIcon size={20} />
                   </span>
-                  <span className="text-sm font-extrabold text-navy-700">{item.label}</span>
+                  <span className="font-head text-sm font-extrabold text-navy-700">{item.label}</span>
                   <span className="text-xs leading-snug text-muted">{item.description}</span>
                 </Link>
               </li>
             )
           })}
         </ul>
+
+        {/* Detalle decorativo de marca (Caveat) */}
+        <p className="font-script mt-4 text-center text-xl text-primary-600">
+          La práctica hace grandes avances. ✦ ¡Tú puedes!
+        </p>
       </section>
     </div>
   )

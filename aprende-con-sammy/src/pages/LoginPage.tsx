@@ -45,10 +45,10 @@ function LoginPage() {
           <p className="text-xs">
             ¿Problemas para entrar? Escribe a{' '}
             <a
-              href="mailto:soporte@aprendeconsammy.cl"
+              href="mailto:aprendesammy@gmail.com"
               className="font-bold text-primary-600 underline-offset-4 hover:underline"
             >
-              soporte@aprendeconsammy.cl
+              aprendesammy@gmail.com
             </a>
           </p>
         }

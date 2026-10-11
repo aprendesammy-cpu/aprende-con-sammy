@@ -15,12 +15,15 @@ export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'dan
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
 const VARIANTS = {
+  /* Primario oficial: #00B4A6 → hover #009688, texto blanco */
   primary:
-    'bg-primary-400 text-navy-900 hover:bg-primary-300 active:bg-primary-500 disabled:bg-primary-100 disabled:text-primary-400',
+    'bg-primary-500 text-white hover:bg-primary-700 active:bg-primary-800 disabled:bg-primary-100 disabled:text-primary-600',
+  /* Secundario oficial: #FFCB3D → hover #FFB300, texto #1E2A44 */
   secondary:
-    'bg-navy-700 text-white hover:bg-navy-600 active:bg-navy-800 disabled:bg-navy-100 disabled:text-navy-500',
+    'bg-sun-400 text-navy-700 hover:bg-sun-500 active:bg-sun-600 disabled:bg-sun-100 disabled:text-sun-600',
+  /* Terciario/outline oficial: borde y texto morado #7B61FF */
   outline:
-    'border-2 border-primary-400 bg-white text-primary-700 hover:bg-primary-50 active:bg-primary-100 disabled:border-primary-100 disabled:text-muted',
+    'border-2 border-creative-500 bg-white text-creative-500 hover:bg-creative-50 active:bg-creative-100 disabled:border-creative-100 disabled:text-muted',
   ghost:
     'bg-transparent text-navy-700 hover:bg-navy-50 active:bg-navy-100 disabled:text-muted',
   danger:
@@ -28,13 +31,13 @@ const VARIANTS = {
 } satisfies Record<ButtonVariant, string>
 
 const SIZES = {
-  sm: 'h-9 min-w-9 px-3 text-sm gap-1.5 rounded-lg',
+  sm: 'h-9 min-w-9 px-3 text-sm gap-1.5 rounded-[10px]',
   md: 'h-11 min-w-11 px-4 text-sm gap-2 rounded-xl',
   lg: 'h-13 min-w-13 px-6 text-base gap-2 rounded-xl2',
 } satisfies Record<ButtonSize, string>
 
 const BASE =
-  'relative inline-flex select-none items-center justify-center font-bold whitespace-nowrap ' +
+  'relative inline-flex select-none items-center justify-center font-semibold whitespace-nowrap ' +
   'transition-[background-color,color,border-color,box-shadow] duration-150 ' +
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 ' +
   'disabled:cursor-not-allowed active:scale-[0.985] motion-reduce:active:scale-100'
